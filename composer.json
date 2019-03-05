@@ -1,0 +1,30 @@
+{
+  "name": "log1x/captured",
+  "type": "package",
+  "license": "MIT",
+  "description": "A bulletproof rewrite of the Captured PHP script for use with CapturedApp",
+  "homepage": "https://github.com/log1x/captured",
+  "authors": [
+    {
+      "name": "Brandon Nifong",
+      "email": "brandon@tendency.me",
+      "homepage": "https://github.com/log1x"
+    }
+  ],
+  "keywords": [
+    "captured",
+    "capturedapp",
+    "screenshot",
+    "macos"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Log1x\\Captured\\": "src/"
+    }
+  },
+  "require": {
+    "nesbot/carbon": "^2.13",
+    "samayo/bulletproof": "^4.0",
+    "hashids/hashids": "^3.0"
+  }
+}
