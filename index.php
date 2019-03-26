@@ -10,4 +10,4 @@ if (class_exists('Log1x\\Captured\\Captured') || ! file_exists($composer = __DIR
 
 require_once $composer;
 
-new Captured();
+return new Captured;
