@@ -48,8 +48,6 @@ class Captured
      */
     public function __construct()
     {
-        $this->config = file_exists($config = __DIR__ . '/../config.php') ? require_once($config) : [];
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->verifyToken();
             $this->verifyConnection();
@@ -67,7 +65,7 @@ class Captured
     {
         header('Content-Type: application/json');
 
-        if (!empty($value['code'])) {
+        if (! empty($value['code'])) {
             http_response_code((int) $value['code']);
         }
 
@@ -82,6 +80,8 @@ class Captured
      */
     protected function config()
     {
+        $config = file_exists($config = __DIR__ . '/../config.php') ? require_once($config) : [];
+        
         return (object) array_merge([
             'token'     => $this->token,
             'dir'       => $this->dir,
@@ -152,7 +152,7 @@ class Captured
      */
     protected function verifyConnection()
     {
-        if (!empty($_POST['test']) && $_POST['test'] === 'true') {
+        if (! empty($_POST['test']) && $_POST['test'] === 'true') {
             $this->response([
                 'code'   => 202,
                 'status' => '202 Accepted'
